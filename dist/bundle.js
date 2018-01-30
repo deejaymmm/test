@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,7 +70,44 @@
 "use strict";
 
 
-__webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Test = function () {
+	function Test() {
+		_classCallCheck(this, Test);
+
+		this._name = "";
+		this.h1;
+	}
+
+	_createClass(Test, [{
+		key: "createH1",
+		value: function createH1() {
+			this.h1 = document.createElement("h1");
+			this.h1.innerText = this.name;
+			document.getElementsByTagName("body")[0].appendChild(this.h1);
+		}
+	}, {
+		key: "name",
+		get: function get() {
+			return this._name;
+		},
+		set: function set(name) {
+			this._name = name;
+			if (this.h1) this.h1.innerText = this.name;
+		}
+	}]);
+
+	return Test;
+}();
+
+exports.default = new Test();
 
 /***/ }),
 /* 1 */
@@ -79,19 +116,32 @@ __webpack_require__(1);
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+var _test = __webpack_require__(0);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _test2 = _interopRequireDefault(_test);
 
-var Test = function Test() {
-	_classCallCheck(this, Test);
+__webpack_require__(2);
 
-	console.log("test");
-};
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = new Test();
+//var test = new Test();
+_test2.default.createH1();
+_test2.default.name = "Hello";
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _test = __webpack_require__(0);
+
+var _test2 = _interopRequireDefault(_test);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_test2.default.name = "fhgfhfghfg";
 
 /***/ })
 /******/ ]);
