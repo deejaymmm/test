@@ -7,7 +7,7 @@ class Test{
 		return this._name;
 	}
 	set name(name){
-		this._name = name;
+        this._name = name;
 		if(this.h1)
 			this.h1.innerText = this.name;
 	}

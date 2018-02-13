@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -70,44 +70,13 @@
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
+var _forms = __webpack_require__(1);
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _forms2 = _interopRequireDefault(_forms);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Test = function () {
-	function Test() {
-		_classCallCheck(this, Test);
-
-		this._name = "";
-		this.h1;
-	}
-
-	_createClass(Test, [{
-		key: "createH1",
-		value: function createH1() {
-			this.h1 = document.createElement("h1");
-			this.h1.innerText = this.name;
-			document.getElementsByTagName("body")[0].appendChild(this.h1);
-		}
-	}, {
-		key: "name",
-		get: function get() {
-			return this._name;
-		},
-		set: function set(name) {
-			this._name = name;
-			if (this.h1) this.h1.innerText = this.name;
-		}
-	}]);
-
-	return Test;
-}();
-
-exports.default = new Test();
+_forms2.default.init();
 
 /***/ }),
 /* 1 */
@@ -116,32 +85,63 @@ exports.default = new Test();
 "use strict";
 
 
-var _test = __webpack_require__(0);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var _test2 = _interopRequireDefault(_test);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(2);
+var _login = __webpack_require__(2);
+
+var _login2 = _interopRequireDefault(_login);
+
+var _registration = __webpack_require__(3);
+
+var _registration2 = _interopRequireDefault(_registration);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//var test = new Test();
-_test2.default.createH1();
-_test2.default.name = "Hello";
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Forms = function () {
+    function Forms() {
+        _classCallCheck(this, Forms);
+
+        this.flag = 0;
+    }
+
+    _createClass(Forms, [{
+        key: "init",
+        value: function init() {
+            document.getElementById('main').innerHTML = _login2.default;
+            document.getElementsByClassName('btn-link')[0].onclick = function () {
+                if (this.flag == 0) {
+                    console.log(this.flag);
+                    document.getElementById('main').innerHTML = _login2.default;
+                } else {
+                    console.log(this.flag);
+                    document.getElementById('main').innerHTML = _registration2.default;
+                }
+            };
+        }
+    }]);
+
+    return Forms;
+}();
+
+exports.default = new Forms();
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+module.exports = "<div id=\"Auth\" class=\"col-md-4\">\r\n   <h2>Authorisation</h2>\r\n   <form role=\"form\">\r\n      <div class=\"form-group\">\r\n        <label for=\"InputLogin\">Login</label>\r\n        <input type=\"login\" class=\"form-control\" id=\"InputLogin\" placeholder=\"Login\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"InputPassword1\">Password</label>\r\n        <input type=\"password\" class=\"form-control\" id=\"InputPassword1\" placeholder=\"Password\">\r\n      </div>\r\n      <div class=\"checkbox\">\r\n        <label>\r\n           <input type=\"checkbox\"> Remember Me\r\n        </label>\r\n      </div>\r\n      <button type=\"button\" class=\"btn btn-success\">Enter</button>\r\n      <button id=\"regLink\" type=\"button\" class=\"btn btn-link\">Registration</button>\r\n    </form>\r\n</div>";
 
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
 
-var _test = __webpack_require__(0);
-
-var _test2 = _interopRequireDefault(_test);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_test2.default.name = "fhgfhfghfg";
+module.exports = "<div id=\"Reg\" class=\"col-md-4\">\r\n   <h2>Registration</h2>\r\n   <form role=\"form\">\r\n      <div class=\"form-group\">\r\n        <label for=\"InputUsername\">Username</label>\r\n        <input type=\"login\" class=\"form-control\" id=\"InputUsername\" placeholder=\"Username\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"InputLogin\">Login</label>\r\n        <input type=\"login\" class=\"form-control\" id=\"InputLogin\" placeholder=\"Login\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"InputEmail\">Email</label>\r\n        <input type=\"email\" class=\"form-control\" id=\"InputEmail\" placeholder=\"Email\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"InputPassword1\">Password</label>\r\n        <input type=\"password\" class=\"form-control\" id=\"InputPassword1\" placeholder=\"Password\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"InputPassword2\">Password again</label>\r\n        <input type=\"password\" class=\"form-control\" id=\"InputPassword2\" placeholder=\"Password\">\r\n      </div>\r\n      <div class=\"checkbox\">\r\n        <label>\r\n           <input type=\"checkbox\"> Remember Me\r\n        </label>\r\n      </div>\r\n      <button type=\"button\" class=\"btn btn-success\">Submit</button>\r\n      <button id=\"authLink\" type=\"button\" class=\"btn btn-link\">Authorisation</button>\r\n    </form>\r\n</div>";
 
 /***/ })
 /******/ ]);
